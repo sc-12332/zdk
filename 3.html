@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>加载中</title>
+		<script type="text/javascript" src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	</head>
+	<body>
+		<script>
+			$.get("https://zdk.cocoj.cn/article/skip", function(res) {
+				if(res.body.domain){
+						var arr = window.location.href.split('?');
+						arr.splice(0, 1);
+						var str = arr.splice(0, 1);
+						var locationYrl ='http://'+res.body.domain+'/'+str.join('');
+						if (arr.length > 0) {
+							locationYrl = locationYrl + '?' + arr.join('');
+						}
+						window.location.href = locationYrl;
+				}else{
+						window.location.href = 'https://www.qq.com'
+				}
+			})
+		</script>
+
+	</body>
+</html>
